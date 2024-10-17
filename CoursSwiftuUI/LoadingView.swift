@@ -9,7 +9,18 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Hello World...")
+                .font(.largeTitle)
+                .padding()
+            
+            ProgressView()
+                .padding(.top, 10.0)
+                .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                .scaleEffect(2)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
     }
 }
 

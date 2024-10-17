@@ -9,6 +9,8 @@ import XCTest
 @testable import CoursSwiftuUI
 
 final class CoursSwiftuUITests: XCTestCase {
+    let viewModel = MainViewModel()
+
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,4 +35,58 @@ final class CoursSwiftuUITests: XCTestCase {
         }
     }
 
+    // Given
+    // When
+    // Then
+    
+    func testGiven_WhenAdditionTwoNumbersThenGettingSumOfThem() {
+        let a = 2
+        let b = 3
+        let awaitedResult = 5
+        var answer = 0
+        XCTAssertTrue(awaitedResult != answer)
+        
+        answer = viewModel.additionne(a, et: b)
+        
+        XCTAssertTrue(awaitedResult == answer)
+    }
+    
+    func testGivenIsValidTrueWhenLoginFalseThenIsValidFalse() {
+        //Given
+        viewModel.isValid = true
+        let answerAwaited = false;
+        let wrongLogin = "djsqldsqjkdqkls"
+        let wrongPassword = "sqkldsj"
+        XCTAssertTrue(viewModel.isValid != answerAwaited)
+        // WHEN
+        viewModel.checkConnection(login: wrongLogin, password: wrongPassword)
+        // THEN
+        XCTAssertTrue(viewModel.isValid == answerAwaited)
+    }
+    
+    func testGivenIsValidTrueWhenLoginRightAndPasswordFalseThenIsValidFalse() {
+        //Given
+        viewModel.isValid = true
+        let answerAwaited = false;
+        let rightLogin = "Jean"
+        let wrongPassword = "sqkldsj"
+        XCTAssertTrue(viewModel.isValid != answerAwaited)
+        // WHEN
+        viewModel.checkConnection(login: rightLogin, password: wrongPassword)
+        // THEN
+        XCTAssertTrue(viewModel.isValid == answerAwaited)
+    }
+    
+    func testGivenIsValidFalseWhenLoginAndPasswordAreRightThenIsValidTrue() {
+        //Given
+        viewModel.isValid = false
+        let answerAwaited = true;
+        let rightLogin = "Jean"
+        let rightPassword = "12345"
+        XCTAssertTrue(viewModel.isValid != answerAwaited)
+        // WHEN
+        viewModel.checkConnection(login: rightLogin, password: rightPassword)
+        // THEN
+        XCTAssertTrue(viewModel.isValid == answerAwaited)
+    }
 }

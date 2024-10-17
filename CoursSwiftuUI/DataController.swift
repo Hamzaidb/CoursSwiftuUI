@@ -5,11 +5,34 @@
 //  Created by IDBOUIGUIGUANE Hamza on 15/10/2024.
 //
 
+
+// Data Controller
+
 import Foundation
 
 class DataController {
-    static let registeredUsers: [String: String] = [
+    static var registeredUsers: [String: String] = [
         "Jean": "12345",
-        "Annie": "54321"
+        "Anne": "54321"
     ]
+    
+    let tableau = [1, 2, 23]
+    
+    func checkTableau() {
+        for number in tableau {
+            
+        }
+    }
+    
+    func checkDico(dico: [String:EleveTest]) {
+        for element in dico {
+            print("\(element.key) s'appelle \(element.value.name) et a \(element.value.age)")
+        }
+    }
 }
+
+struct EleveTest {
+    var name: String
+    var age: Int
+}
+
